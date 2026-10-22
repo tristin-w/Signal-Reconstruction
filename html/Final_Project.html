@@ -1,0 +1,892 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<!--
+This HTML was auto-generated from MATLAB code.
+To make changes, update the MATLAB code and republish this document.
+      -->
+<title>Final_Project</title>
+<meta name="generator" content="MATLAB 25.2">
+<link rel="schema.DC" href="http://purl.org/dc/elements/1.1/">
+<meta name="DC.date" content="2026-05-10">
+<meta name="DC.source" content="Final_Project.m">
+<style type="text/css">
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
+
+html { min-height:100%; margin-bottom:1px; }
+html body { height:100%; margin:0px; font-family:Arial, Helvetica, sans-serif; font-size:10px; color:#000; line-height:140%; background:#fff none; overflow-y:scroll; }
+html body td { vertical-align:top; text-align:left; }
+
+h1 { padding:0px; margin:0px 0px 25px; font-family:Arial, Helvetica, sans-serif; font-size:1.5em; color:#d55000; line-height:100%; font-weight:normal; }
+h2 { padding:0px; margin:0px 0px 8px; font-family:Arial, Helvetica, sans-serif; font-size:1.2em; color:#000; font-weight:bold; line-height:140%; border-bottom:1px solid #d6d4d4; display:block; }
+h3 { padding:0px; margin:0px 0px 5px; font-family:Arial, Helvetica, sans-serif; font-size:1.1em; color:#000; font-weight:bold; line-height:140%; }
+
+a { color:#005fce; text-decoration:none; }
+a:hover { color:#005fce; text-decoration:underline; }
+a:visited { color:#004aa0; text-decoration:none; }
+
+p { padding:0px; margin:0px 0px 20px; }
+img { padding:0px; margin:0px 0px 20px; border:none; }
+p img, pre img, tt img, li img, h1 img, h2 img { margin-bottom:0px; }
+
+ul { padding:0px; margin:0px 0px 20px 23px; list-style:square; }
+ul li { padding:0px; margin:0px 0px 7px 0px; }
+ul li ul { padding:5px 0px 0px; margin:0px 0px 7px 23px; }
+ul li ol li { list-style:decimal; }
+ol { padding:0px; margin:0px 0px 20px 0px; list-style:decimal; }
+ol li { padding:0px; margin:0px 0px 7px 23px; list-style-type:decimal; }
+ol li ol { padding:5px 0px 0px; margin:0px 0px 7px 0px; }
+ol li ol li { list-style-type:lower-alpha; }
+ol li ul { padding-top:7px; }
+ol li ul li { list-style:square; }
+
+.content { font-size:1.2em; line-height:140%; padding: 20px; }
+
+pre, code { font-size:12px; }
+tt { font-size: 1.2em; }
+pre { margin:0px 0px 20px; }
+pre.codeinput { padding:10px; border:1px solid #d3d3d3; background:#f7f7f7; }
+pre.codeoutput { padding:10px 11px; margin:0px 0px 20px; color:#4c4c4c; }
+pre.error { color:red; }
+
+@media print { pre.codeinput, pre.codeoutput { word-wrap:break-word; width:100%; } }
+
+span.keyword { color:#0000FF }
+span.comment { color:#228B22 }
+span.string { color:#A020F0 }
+span.untermstring { color:#B20000 }
+span.syscmd { color:#B28C00 }
+span.typesection { color:#A0522D }
+
+.footer { width:auto; padding:10px 0px; margin:25px 0px 0px; border-top:1px dotted #878787; font-size:0.8em; line-height:140%; font-style:italic; color:#878787; text-align:left; float:none; }
+.footer p { margin:0px; }
+.footer a { color:#878787; }
+.footer a:hover { color:#878787; text-decoration:underline; }
+.footer a:visited { color:#878787; }
+
+table th { padding:7px 5px; text-align:left; vertical-align:middle; border: 1px solid #d6d4d4; font-weight:bold; }
+table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px solid #d6d4d4; }
+
+
+
+
+
+  </style>
+</head>
+<body>
+<div class="content">
+<h2>Contents</h2>
+<div>
+<ul>
+<li>
+<a href="#2">Voice-Code Breaker</a>
+</li>
+<li>
+<a href="#3">Design of an experiment</a>
+</li>
+</ul>
+</div>
+<pre class="codeinput">clc; clear; close <span class="string">all</span>;
+<span class="comment">% Tristin Webb</span>
+<span class="comment">% Final Project</span>
+<span class="comment">% Date: 05/5/2026</span>
+
+fprintf(<span class="string">'********************************\n'</span>)
+fprintf(<span class="string">'*          Final Project       *\n'</span>)
+fprintf(<span class="string">'********************************\n'</span>)
+</pre>
+<pre class="codeoutput">********************************
+*          Final Project       *
+********************************
+</pre>
+<h2 id="2">Voice-Code Breaker</h2>
+<p>==================================================</p>
+<pre class="codeinput">fprintf(<span class="string">'\n========================================='</span>)
+fprintf(<span class="string">"\nI) Voice-Code Breaker:\n"</span>);
+fprintf(<span class="string">'=========================================\n'</span>)
+
+
+<span class="comment">%  1) Load corrupted voice data file</span>
+corrupted_file = <span class="string">'Tristin_Webb.wav'</span>;
+[voiceData, fs] = audioread(corrupted_file);
+
+<span class="comment">% Display the info for corrupted file</span>
+fprintf(<span class="string">"\nCorrupted Audio File Information:\n"</span>)
+fprintf(<span class="string">'================================\n'</span>)
+info = audioinfo(corrupted_file);
+disp(info);
+
+<span class="comment">% Find number of digits in corrupted file</span>
+num_of_digits = info.TotalSamples / 16000;
+fprintf(<span class="string">"Number of digits in corrupted file:"</span>);
+fprintf(<span class="string">'\n================================\n'</span>);
+fprintf(<span class="string">"%i\n"</span>, num_of_digits);
+
+<span class="comment">% Load template files</span>
+[template_0, fs] = audioread(<span class="string">"Zero.wav"</span>);
+[template_1, fs] = audioread(<span class="string">"One.wav"</span>);
+[template_2, fs] = audioread(<span class="string">"Two.wav"</span>);
+[template_3, fs] = audioread(<span class="string">"Three.wav"</span>);
+[template_4, fs] = audioread(<span class="string">"Four.wav"</span>);
+[template_5, fs] = audioread(<span class="string">"Five.wav"</span>);
+[template_6, fs] = audioread(<span class="string">"Six.wav"</span>);
+[template_7, fs] = audioread(<span class="string">"Seven.wav"</span>);
+[template_8, fs] = audioread(<span class="string">"Eight.wav"</span>);
+[template_9, fs] = audioread(<span class="string">"Nine.wav"</span>);
+
+<span class="comment">% Store these templates into an array/list</span>
+templates = [template_0, template_1, template_2, template_3, template_4, template_5, template_6, template_7, template_8, template_9];
+
+<span class="comment">% First digit of corrupt file</span>
+first_corrupt_digit = voiceData(1:16000, 1);
+
+<span class="comment">% Second digit of corrupt file</span>
+second_corrupt_digit = voiceData(16001:32000, 1);
+
+<span class="comment">% Third digit of corrupt file</span>
+third_corrupt_digit = voiceData(32001:48000, 1);
+
+<span class="comment">% Fourth digit of corrupt file</span>
+fourth_corrupt_digit = voiceData(48001:64000, 1);
+
+
+<span class="comment">% Find the magnitude of the inner product of each digit and the templates</span>
+<span class="comment">% Using the template and the corrupted file</span>
+<span class="comment">% % Note: Choose the inner product with the greatest magnitude</span>
+
+
+
+
+
+<span class="comment">% Find magnitude of inner product (first digit)</span>
+<span class="comment">% ====================================================================</span>
+InnerProduct_first_digit = [1:10];
+<span class="keyword">for</span> i = 1:10
+    InnerProduct_first_digit(i) = abs(dot(first_corrupt_digit, templates(:,i)));
+<span class="keyword">end</span>
+
+<span class="comment">% Find index where the max inner product occurs (first digit)</span>
+maxMagnitudeFirstDigit = max(InnerProduct_first_digit);
+index_first_digit = find(InnerProduct_first_digit == maxMagnitudeFirstDigit);
+first_identified_digit = templates(:, index_first_digit);
+<span class="comment">% sound(first_identified_digit, fs);</span>
+<span class="comment">% ====================================================================</span>
+
+
+
+
+
+
+<span class="comment">% Find magnitude ofinner product (second digit)</span>
+<span class="comment">% ====================================================================</span>
+InnerProduct_second_digit = [1:10];
+<span class="keyword">for</span> i = 1:10
+    InnerProduct_second_digit(i) = abs(dot(second_corrupt_digit, templates(:,i)));
+<span class="keyword">end</span>
+
+<span class="comment">% Find index where the max inner product occurs (second digit)</span>
+maxIndexSecondDigit = max(InnerProduct_second_digit);
+index_second_digit = find(InnerProduct_second_digit == maxIndexSecondDigit);
+second_identified_digit = templates(:, index_second_digit);
+<span class="comment">% sound(second_identified_digit, fs);</span>
+<span class="comment">% ====================================================================</span>
+
+
+
+
+
+
+<span class="comment">% Find magnitude of inner product (third digit)</span>
+<span class="comment">% ====================================================================</span>
+InnerProduct_third_digit = [1:10];
+<span class="keyword">for</span> i = 1:10
+    InnerProduct_third_digit(i) = abs(dot(third_corrupt_digit, templates(:,i)));
+<span class="keyword">end</span>
+
+<span class="comment">% Find index where the max inner product occurs (third digit)</span>
+maxIndexThirdDigit = max(InnerProduct_third_digit);
+index_third_digit = find(InnerProduct_third_digit == maxIndexThirdDigit);
+third_identified_digit = templates(:, index_third_digit);
+<span class="comment">% sound(third_identified_digit, fs);</span>
+<span class="comment">% ====================================================================</span>
+
+
+
+
+
+
+<span class="comment">% Find magnitude of inner product (fourth digit)</span>
+<span class="comment">% ====================================================================</span>
+InnerProduct_fourth_digit = [1:10];
+<span class="keyword">for</span> i = 1:10
+    InnerProduct_fourth_digit(i) = abs(dot(fourth_corrupt_digit, templates(:,i)));
+<span class="keyword">end</span>
+
+<span class="comment">% Find index where the max inner product occurs (fourth digit)</span>
+maxIndexFourthDigit = max(InnerProduct_fourth_digit);
+index_fourth_digit = find(InnerProduct_fourth_digit == maxIndexFourthDigit);
+fourth_identified_digit = templates(:, index_fourth_digit);
+<span class="comment">% sound(fourth_identified_digit, fs);</span>
+<span class="comment">% ====================================================================</span>
+
+
+
+<span class="comment">% Display decoded voice-code numbers and the magnitude of inner-products</span>
+fprintf(<span class="string">"\nDecoded Voice-Code Numbers:\n"</span>);
+fprintf(<span class="string">"================================\n"</span>);
+fprintf(<span class="string">"First Number: %d (Magnitude: %.2f)\n"</span>, index_first_digit-1, maxMagnitudeFirstDigit);
+fprintf(<span class="string">"Second Number: %d (Magnitude: %.2f)\n"</span>, index_second_digit-1, maxIndexSecondDigit);
+fprintf(<span class="string">"Third Number: %d (Magnitude: %.2f)\n"</span>, index_third_digit-1, maxIndexThirdDigit);
+fprintf(<span class="string">"Fourth Number: %d (Magnitude: %.2f)\n"</span>, index_fourth_digit-1, maxIndexFourthDigit);
+
+
+<span class="comment">% Combine the identified digits into a single audio signal</span>
+recovered_audio = [first_identified_digit; second_identified_digit; third_identified_digit; fourth_identified_digit];
+
+<span class="comment">% Write the combined audio signal to a file</span>
+audiowrite(<span class="string">'recovered_audio.wav'</span>, recovered_audio, fs);
+
+<span class="comment">% Audio player object to listen to recovered audio</span>
+player = audioplayer(recovered_audio, fs);
+player.play();
+
+
+
+<span class="comment">% Plot the plot for first 1000 samples of first digit and another plot for</span>
+<span class="comment">% first 1000 samples of the corresponding digit that was identified</span>
+
+<span class="comment">% Plot the first 1000 samples of the first digit and the corresponding identified digit</span>
+figure;
+subplot(2, 1, 1);
+plot(first_corrupt_digit(1:1000));
+title(<span class="string">'First Corrupt Digit'</span>);
+xlabel(<span class="string">'Sample'</span>);
+ylabel(<span class="string">'Amplitude'</span>);
+
+<span class="comment">% Plot the first 1000 samples of the identified digit</span>
+subplot(2, 1, 2);
+plot(first_identified_digit(1:1000));
+title(<span class="string">'First Identified Digit'</span>);
+xlabel(<span class="string">'Sample'</span>);
+ylabel(<span class="string">'Amplitude'</span>);
+
+
+<span class="comment">% Extra Credit:</span>
+<span class="comment">% Write code so that it could decode a number of any length</span>
+<span class="comment">% ========================================================================</span>
+</pre>
+<pre class="codeoutput">
+=========================================
+I) Voice-Code Breaker:
+=========================================
+
+Corrupted Audio File Information:
+================================
+             Filename: 'C:\Users\lunix\OneDrive\Desktop\EE200_Final_Proj\Tristin_Webb.wav'
+    CompressionMethod: 'Uncompressed'
+          NumChannels: 1
+           SampleRate: 16000
+         TotalSamples: 64000
+             Duration: 4
+                Title: []
+              Comment: []
+               Artist: []
+        BitsPerSample: 16
+
+Number of digits in corrupted file:
+================================
+4
+
+Decoded Voice-Code Numbers:
+================================
+First Number: 9 (Magnitude: 45.06)
+Second Number: 8 (Magnitude: 27.26)
+Third Number: 5 (Magnitude: 33.92)
+Fourth Number: 0 (Magnitude: 59.74)
+</pre>
+<img vspace="5" hspace="5" src="Final_Project_01.png" alt=""> <h2 id="3">Design of an experiment</h2>
+<p>==================================================</p>
+<pre class="codeinput">fprintf(<span class="string">'\n========================================='</span>)
+fprintf(<span class="string">"\nII) Design of an experiment:\n"</span>);
+fprintf(<span class="string">'=========================================\n'</span>)
+
+<span class="comment">% Random values modeled as Gaussian</span>
+std_dev = 10; <span class="comment">% ohms</span>
+
+<span class="comment">% Find the mean value of the resistors produced by taking some samples</span>
+<span class="comment">% Use those samples to estimate the mean value</span>
+
+
+
+
+<span class="comment">% a) 95% confident that the true mean is present within (+/-) 4 ohms of</span>
+<span class="comment">%    your estimated mean.... How will you design this experiment?</span>
+<span class="comment">%</span>
+<span class="comment">% How many sample resistors n need to be measured to estimate the mean</span>
+<span class="comment">% value.</span>
+<span class="comment">% ========================================================================</span>
+
+confidence_level = 0.95; <span class="comment">% c</span>
+critical_value = 1.960;  <span class="comment">% z*</span>
+margin_of_error = 4; <span class="comment">% m</span>
+
+<span class="comment">% Margin of error formula: (z*)*(std_dev/sqrt(n)) = m</span>
+<span class="comment">% z* = critical value</span>
+<span class="comment">% n = # of samples</span>
+<span class="comment">% m = margin of error</span>
+
+<span class="comment">% Solve for n</span>
+
+n = ceil(((std_dev * critical_value)/margin_of_error)^2);
+
+
+fprintf(<span class="string">"\nSamples needed to estimate the mean value:\n"</span>);
+fprintf(<span class="string">'================================\n'</span>);
+fprintf(<span class="string">"%i\n"</span>, n);
+
+
+
+
+
+
+<span class="comment">% b) Later the manager tells you the true mean value is 100 ohm. Generate n</span>
+<span class="comment">%    random resistor values to simulate the above scenario and estimate the</span>
+<span class="comment">%    mean resistor value.</span>
+<span class="comment">%</span>
+<span class="comment">% What is the confidence interval? Does your confidence interval contain</span>
+<span class="comment">% the true mean?</span>
+<span class="comment">% ========================================================================</span>
+
+
+
+<span class="comment">% Generate random resistor values centered around the true mean</span>
+true_mean = 100; <span class="comment">% ohms</span>
+sample_resistors = true_mean + std_dev * randn(n, 1);
+
+<span class="comment">% Find the sample mean</span>
+sample_mean = mean(sample_resistors);
+
+<span class="comment">% Determine the confidence interval</span>
+margin_of_error = critical_value * (std_dev/sqrt(n));
+lower = sample_mean - margin_of_error;
+upper = sample_mean + margin_of_error;
+
+fprintf(<span class="string">"\nConfidence Interval:\n"</span>);
+fprintf(<span class="string">'================================\n'</span>);
+fprintf(<span class="string">"[%.2f, %.2f]\n"</span>, lower, upper);
+
+<span class="keyword">if</span> (true_mean &gt;= lower &amp;&amp; true_mean &lt;= upper)
+    fprintf(<span class="string">"Confidence Interval contains true mean\n"</span>);
+<span class="keyword">else</span>
+    fprintf(<span class="string">"Confidence Interval does NOT contain true mean\n"</span>);
+<span class="keyword">end</span>
+
+
+
+
+<span class="comment">% c) Repeat part b 1000 times (do not print out all the resistor values)</span>
+<span class="comment">%</span>
+<span class="comment">% Note: Do not report each mean estimate nor the confidence intervals. Only</span>
+<span class="comment">% need to report how many times, out of 1000 repetitions, is the true mean</span>
+<span class="comment">% contained within the confidence interval?</span>
+<span class="comment">% ========================================================================</span>
+
+num_trials = 1000;
+count_within_interval = 0;
+
+lower_limits = zeros(num_trials,1);
+upper_limits = zeros(num_trials,1);
+
+<span class="keyword">for</span> i = 1:num_trials
+    sample = true_mean + std_dev * randn(n,1);
+    sample_mean = mean(sample);
+
+    lower = sample_mean - margin_of_error;
+    upper = sample_mean + margin_of_error;
+
+    lower_limits(i) = lower;
+    upper_limits(i) = upper;
+
+    <span class="keyword">if</span> (true_mean &gt;= lower &amp;&amp; true_mean &lt;= upper)
+        count_within_interval = count_within_interval + 1;
+    <span class="keyword">end</span>
+<span class="keyword">end</span>
+
+
+fprintf(<span class="string">"\n# of times Confidence Interval contained true mean:\n"</span>);
+fprintf(<span class="string">'=====================================================\n'</span>);
+fprintf(<span class="string">"%d out of 1000 times\n"</span>, count_within_interval);
+
+
+
+
+<span class="comment">% d) Plot three curves in a single figure corresponding to part c</span>
+<span class="comment">%  - the first curve should show the lower limit of the confidence interval</span>
+<span class="comment">%  - the second curve should show the upper limit of the confidence interval</span>
+<span class="comment">%  - the third curve is the constant true mean value</span>
+<span class="comment">%</span>
+<span class="comment">% Note: All the curves should be plotted against the experiment repetition</span>
+<span class="comment">% number, 1, 2, ..., 1000.</span>
+<span class="comment">%</span>
+<span class="comment">% Can you visually inspect the curves to report how many times the confidence interval</span>
+<span class="comment">% does not contain the true mean value?</span>
+<span class="comment">% ========================================================================</span>
+
+
+figure;
+plot(1:num_trials, lower_limits, <span class="string">'b'</span>); hold <span class="string">on</span>;
+plot(1:num_trials, upper_limits, <span class="string">'r'</span>);
+plot(1:num_trials, true_mean * ones(num_trials,1), <span class="string">'k--'</span>);
+set(gca, <span class="string">'Color'</span>, <span class="string">'w'</span>);
+legend(<span class="string">'Lower Confidence Interval'</span>, <span class="string">'Upper Confidence Interval'</span>, <span class="string">'True Mean'</span>);
+xlabel(<span class="string">'Trial Number'</span>);
+ylabel(<span class="string">'Resistance (Ohm)'</span>);
+title(<span class="string">'Confidence Intervals over 1000 Trials'</span>);
+grid <span class="string">on</span>;
+
+
+<span class="comment">% e) Repeat parts b, c, and d if the manager tells you that the true mean</span>
+<span class="comment">% resistor is 220 ohm</span>
+<span class="comment">% ========================================================================</span>
+
+true_mean = 220;
+
+<span class="comment">% Repeat 1000 trials</span>
+count_within_interval = 0;
+lower_limits = zeros(num_trials,1);
+upper_limits = zeros(num_trials,1);
+
+<span class="keyword">for</span> i = 1:num_trials
+    sample = true_mean + std_dev * randn(n,1);
+    sample_mean = mean(sample);
+
+    lower = sample_mean - margin_of_error;
+    upper = sample_mean + margin_of_error;
+
+    lower_limits(i) = lower;
+    upper_limits(i) = upper;
+
+    <span class="keyword">if</span> (true_mean &gt;= lower &amp;&amp; true_mean &lt;= upper)
+        count_within_interval = count_within_interval + 1;
+    <span class="keyword">end</span>
+<span class="keyword">end</span>
+
+fprintf(<span class="string">"\n# of times Confidence Interval contained true mean (220 Ohm):\n"</span>);
+fprintf(<span class="string">'==============================================================\n'</span>);
+fprintf(<span class="string">"%d out of 1000 times\n"</span>, count_within_interval);
+
+<span class="comment">% Plot the Confidence Interval curves for true mean = 220</span>
+figure;
+plot(1:num_trials, lower_limits, <span class="string">'b'</span>); hold <span class="string">on</span>;
+plot(1:num_trials, upper_limits, <span class="string">'r'</span>);
+plot(1:num_trials, true_mean * ones(num_trials,1), <span class="string">'k--'</span>);
+set(gca, <span class="string">'Color'</span>, <span class="string">'w'</span>);
+legend(<span class="string">'Lower Confidence Interval'</span>, <span class="string">'Upper Confidence Interval'</span>, <span class="string">'True Mean'</span>);
+xlabel(<span class="string">'Trial Number'</span>);
+ylabel(<span class="string">'Resistance (Ohm)'</span>);
+title(<span class="string">'Confidence Intervals over 1000 Trials (True Mean = 220 Ohm)'</span>);
+grid <span class="string">on</span>;
+</pre>
+<pre class="codeoutput">
+=========================================
+II) Design of an experiment:
+=========================================
+
+Samples needed to estimate the mean value:
+================================
+25
+
+Confidence Interval:
+================================
+[102.32, 110.16]
+Confidence Interval does NOT contain true mean
+
+# of times Confidence Interval contained true mean:
+=====================================================
+950 out of 1000 times
+
+# of times Confidence Interval contained true mean (220 Ohm):
+==============================================================
+949 out of 1000 times
+</pre>
+<img vspace="5" hspace="5" src="Final_Project_02.png" alt=""> <img vspace="5" hspace="5" src="Final_Project_03.png" alt=""> <p class="footer">
+<br>
+<a href="https://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2025b</a>
+<br>
+</p>
+</div>
+<!--
+##### SOURCE BEGIN #####
+clc; clear; close all;
+% Tristin Webb
+% Final Project
+% Date: 05/5/2026
+
+fprintf('********************************\n')
+fprintf('*          Final Project       *\n')
+fprintf('********************************\n')
+
+%% Voice-Code Breaker
+% ==================================================
+fprintf('\n=========================================')
+fprintf("\nI) Voice-Code Breaker:\n");
+fprintf('=========================================\n')
+
+
+%  1) Load corrupted voice data file
+corrupted_file = 'Tristin_Webb.wav';
+[voiceData, fs] = audioread(corrupted_file);
+
+% Display the info for corrupted file
+fprintf("\nCorrupted Audio File Information:\n")
+fprintf('================================\n')
+info = audioinfo(corrupted_file);
+disp(info);
+
+% Find number of digits in corrupted file
+num_of_digits = info.TotalSamples / 16000;
+fprintf("Number of digits in corrupted file:");
+fprintf('\n================================\n');
+fprintf("%i\n", num_of_digits);
+
+% Load template files
+[template_0, fs] = audioread("Zero.wav");
+[template_1, fs] = audioread("One.wav");
+[template_2, fs] = audioread("Two.wav");
+[template_3, fs] = audioread("Three.wav");
+[template_4, fs] = audioread("Four.wav");
+[template_5, fs] = audioread("Five.wav");
+[template_6, fs] = audioread("Six.wav");
+[template_7, fs] = audioread("Seven.wav");
+[template_8, fs] = audioread("Eight.wav");
+[template_9, fs] = audioread("Nine.wav");
+
+% Store these templates into an array/list
+templates = [template_0, template_1, template_2, template_3, template_4, template_5, template_6, template_7, template_8, template_9];
+
+% First digit of corrupt file
+first_corrupt_digit = voiceData(1:16000, 1);
+
+% Second digit of corrupt file
+second_corrupt_digit = voiceData(16001:32000, 1);
+
+% Third digit of corrupt file
+third_corrupt_digit = voiceData(32001:48000, 1);
+
+% Fourth digit of corrupt file
+fourth_corrupt_digit = voiceData(48001:64000, 1);
+
+
+% Find the magnitude of the inner product of each digit and the templates
+% Using the template and the corrupted file
+% % Note: Choose the inner product with the greatest magnitude
+
+
+
+
+
+% Find magnitude of inner product (first digit)
+% ====================================================================
+InnerProduct_first_digit = [1:10];
+for i = 1:10
+    InnerProduct_first_digit(i) = abs(dot(first_corrupt_digit, templates(:,i)));
+end
+
+% Find index where the max inner product occurs (first digit)
+maxMagnitudeFirstDigit = max(InnerProduct_first_digit);
+index_first_digit = find(InnerProduct_first_digit == maxMagnitudeFirstDigit);
+first_identified_digit = templates(:, index_first_digit);
+% sound(first_identified_digit, fs);
+% ====================================================================
+
+
+
+
+
+
+% Find magnitude ofinner product (second digit)
+% ====================================================================
+InnerProduct_second_digit = [1:10];
+for i = 1:10
+    InnerProduct_second_digit(i) = abs(dot(second_corrupt_digit, templates(:,i)));
+end
+
+% Find index where the max inner product occurs (second digit)
+maxIndexSecondDigit = max(InnerProduct_second_digit);
+index_second_digit = find(InnerProduct_second_digit == maxIndexSecondDigit);
+second_identified_digit = templates(:, index_second_digit);
+% sound(second_identified_digit, fs);
+% ====================================================================
+
+
+
+
+
+
+% Find magnitude of inner product (third digit)
+% ====================================================================
+InnerProduct_third_digit = [1:10];
+for i = 1:10
+    InnerProduct_third_digit(i) = abs(dot(third_corrupt_digit, templates(:,i)));
+end
+
+% Find index where the max inner product occurs (third digit)
+maxIndexThirdDigit = max(InnerProduct_third_digit);
+index_third_digit = find(InnerProduct_third_digit == maxIndexThirdDigit);
+third_identified_digit = templates(:, index_third_digit);
+% sound(third_identified_digit, fs);
+% ====================================================================
+
+
+
+
+
+
+% Find magnitude of inner product (fourth digit)
+% ====================================================================
+InnerProduct_fourth_digit = [1:10];
+for i = 1:10
+    InnerProduct_fourth_digit(i) = abs(dot(fourth_corrupt_digit, templates(:,i)));
+end
+
+% Find index where the max inner product occurs (fourth digit)
+maxIndexFourthDigit = max(InnerProduct_fourth_digit);
+index_fourth_digit = find(InnerProduct_fourth_digit == maxIndexFourthDigit);
+fourth_identified_digit = templates(:, index_fourth_digit);
+% sound(fourth_identified_digit, fs);
+% ====================================================================
+
+
+
+% Display decoded voice-code numbers and the magnitude of inner-products
+fprintf("\nDecoded Voice-Code Numbers:\n");
+fprintf("================================\n");
+fprintf("First Number: %d (Magnitude: %.2f)\n", index_first_digit-1, maxMagnitudeFirstDigit);
+fprintf("Second Number: %d (Magnitude: %.2f)\n", index_second_digit-1, maxIndexSecondDigit);
+fprintf("Third Number: %d (Magnitude: %.2f)\n", index_third_digit-1, maxIndexThirdDigit);
+fprintf("Fourth Number: %d (Magnitude: %.2f)\n", index_fourth_digit-1, maxIndexFourthDigit);
+
+
+% Combine the identified digits into a single audio signal
+recovered_audio = [first_identified_digit; second_identified_digit; third_identified_digit; fourth_identified_digit];
+
+% Write the combined audio signal to a file
+audiowrite('recovered_audio.wav', recovered_audio, fs);
+
+% Audio player object to listen to recovered audio
+player = audioplayer(recovered_audio, fs);
+player.play();
+
+
+
+% Plot the plot for first 1000 samples of first digit and another plot for 
+% first 1000 samples of the corresponding digit that was identified
+
+% Plot the first 1000 samples of the first digit and the corresponding identified digit
+figure;
+subplot(2, 1, 1);
+plot(first_corrupt_digit(1:1000));
+title('First Corrupt Digit');
+xlabel('Sample');
+ylabel('Amplitude');
+
+% Plot the first 1000 samples of the identified digit
+subplot(2, 1, 2);
+plot(first_identified_digit(1:1000)); 
+title('First Identified Digit');
+xlabel('Sample');
+ylabel('Amplitude');
+
+
+% Extra Credit:
+% Write code so that it could decode a number of any length
+% ========================================================================
+
+
+%% Design of an experiment
+% ==================================================
+fprintf('\n=========================================')
+fprintf("\nII) Design of an experiment:\n");
+fprintf('=========================================\n')
+
+% Random values modeled as Gaussian
+std_dev = 10; % ohms
+
+% Find the mean value of the resistors produced by taking some samples
+% Use those samples to estimate the mean value
+
+
+
+
+% a) 95% confident that the true mean is present within (+/-) 4 ohms of 
+%    your estimated mean.... How will you design this experiment?
+% 
+% How many sample resistors n need to be measured to estimate the mean
+% value.
+% ========================================================================
+
+confidence_level = 0.95; % c
+critical_value = 1.960;  % z*
+margin_of_error = 4; % m
+
+% Margin of error formula: (z*)*(std_dev/sqrt(n)) = m
+% z* = critical value
+% n = # of samples
+% m = margin of error
+
+% Solve for n
+
+n = ceil(((std_dev * critical_value)/margin_of_error)^2);
+
+
+fprintf("\nSamples needed to estimate the mean value:\n");
+fprintf('================================\n');
+fprintf("%i\n", n);
+
+
+
+
+
+
+% b) Later the manager tells you the true mean value is 100 ohm. Generate n
+%    random resistor values to simulate the above scenario and estimate the
+%    mean resistor value.
+% 
+% What is the confidence interval? Does your confidence interval contain
+% the true mean?
+% ========================================================================
+
+
+
+% Generate random resistor values centered around the true mean
+true_mean = 100; % ohms
+sample_resistors = true_mean + std_dev * randn(n, 1);
+
+% Find the sample mean
+sample_mean = mean(sample_resistors);
+
+% Determine the confidence interval
+margin_of_error = critical_value * (std_dev/sqrt(n));
+lower = sample_mean - margin_of_error;
+upper = sample_mean + margin_of_error;
+
+fprintf("\nConfidence Interval:\n");
+fprintf('================================\n');
+fprintf("[%.2f, %.2f]\n", lower, upper);
+
+if (true_mean >= lower && true_mean <= upper)
+    fprintf("Confidence Interval contains true mean\n");
+else
+    fprintf("Confidence Interval does NOT contain true mean\n");
+end
+
+
+
+
+% c) Repeat part b 1000 times (do not print out all the resistor values)
+% 
+% Note: Do not report each mean estimate nor the confidence intervals. Only
+% need to report how many times, out of 1000 repetitions, is the true mean
+% contained within the confidence interval?
+% ========================================================================
+
+num_trials = 1000;
+count_within_interval = 0;
+
+lower_limits = zeros(num_trials,1);
+upper_limits = zeros(num_trials,1);
+
+for i = 1:num_trials
+    sample = true_mean + std_dev * randn(n,1);
+    sample_mean = mean(sample);
+
+    lower = sample_mean - margin_of_error;
+    upper = sample_mean + margin_of_error;
+
+    lower_limits(i) = lower;
+    upper_limits(i) = upper;
+
+    if (true_mean >= lower && true_mean <= upper)
+        count_within_interval = count_within_interval + 1;
+    end
+end
+
+
+fprintf("\n# of times Confidence Interval contained true mean:\n");
+fprintf('=====================================================\n');
+fprintf("%d out of 1000 times\n", count_within_interval);
+
+
+
+
+% d) Plot three curves in a single figure corresponding to part c
+%  - the first curve should show the lower limit of the confidence interval
+%  - the second curve should show the upper limit of the confidence interval
+%  - the third curve is the constant true mean value
+%
+% Note: All the curves should be plotted against the experiment repetition
+% number, 1, 2, ..., 1000.
+%
+% Can you visually inspect the curves to report how many times the confidence interval
+% does not contain the true mean value?
+% ========================================================================
+
+
+figure;
+plot(1:num_trials, lower_limits, 'b'); hold on;
+plot(1:num_trials, upper_limits, 'r');
+plot(1:num_trials, true_mean * ones(num_trials,1), 'kREPLACE_WITH_DASH_DASH');
+set(gca, 'Color', 'w');
+legend('Lower Confidence Interval', 'Upper Confidence Interval', 'True Mean');
+xlabel('Trial Number');
+ylabel('Resistance (Ohm)');
+title('Confidence Intervals over 1000 Trials');
+grid on;
+
+
+% e) Repeat parts b, c, and d if the manager tells you that the true mean
+% resistor is 220 ohm
+% ========================================================================
+
+true_mean = 220;
+
+% Repeat 1000 trials
+count_within_interval = 0;
+lower_limits = zeros(num_trials,1);
+upper_limits = zeros(num_trials,1);
+
+for i = 1:num_trials
+    sample = true_mean + std_dev * randn(n,1);
+    sample_mean = mean(sample);
+
+    lower = sample_mean - margin_of_error;
+    upper = sample_mean + margin_of_error;
+
+    lower_limits(i) = lower;
+    upper_limits(i) = upper;
+
+    if (true_mean >= lower && true_mean <= upper)
+        count_within_interval = count_within_interval + 1;
+    end
+end
+
+fprintf("\n# of times Confidence Interval contained true mean (220 Ohm):\n");
+fprintf('==============================================================\n');
+fprintf("%d out of 1000 times\n", count_within_interval);
+
+% Plot the Confidence Interval curves for true mean = 220
+figure;
+plot(1:num_trials, lower_limits, 'b'); hold on;
+plot(1:num_trials, upper_limits, 'r');
+plot(1:num_trials, true_mean * ones(num_trials,1), 'kREPLACE_WITH_DASH_DASH');
+set(gca, 'Color', 'w');
+legend('Lower Confidence Interval', 'Upper Confidence Interval', 'True Mean');
+xlabel('Trial Number');
+ylabel('Resistance (Ohm)');
+title('Confidence Intervals over 1000 Trials (True Mean = 220 Ohm)');
+grid on;
+##### SOURCE END #####
+-->
+</body>
+</html>
